@@ -3,10 +3,12 @@ import { DiscordService } from './discord.service';
 import { DiscordController } from './discord.controller';
 import { ConfigModule } from '../config/config.module';
 import { ConfigService } from '../config/config.service';
+import { CommandsService } from './commands/commands.service';
+import { ScheduledService } from './scheduled/scheduled.service';
 
 @Module({
   imports: [ConfigModule],
-  providers: [DiscordService, ConfigService],
+  providers: [DiscordService, ConfigService, CommandsService, ScheduledService],
   exports: [DiscordService],
   controllers: [DiscordController],
 })
