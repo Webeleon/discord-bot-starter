@@ -6,10 +6,6 @@ Health check, should always return OK
 - [GET] /discord/bot-invite
 helper method that redirect to the bot invite link
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
 ## Installation
 
 ```bash
@@ -51,3 +47,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Built with
+
+[Nest](https://github.com/nestjs/nest) framework TypeScript.
+[discord.js](https://discord.js.org/#/) discord API client.
