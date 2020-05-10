@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Client, Message } from 'discord.js';
 
 import { ICommandService } from './interfaces/ICommandService';
@@ -17,6 +17,7 @@ export class CommandsService {
     const { content } = message;
     for (const handler of this.commandHandlers) {
       if (handler.test(content)) {
+        Logger.debug(`executing command [${handler.name}] => ${content}`);
         await handler.execute(message);
       }
     }

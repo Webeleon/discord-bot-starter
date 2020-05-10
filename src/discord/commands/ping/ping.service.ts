@@ -5,6 +5,7 @@ import { ICommandService } from '../interfaces/ICommandService';
 
 @Injectable()
 export class PingService implements ICommandService {
+  name = 'ping';
   test(content: string): boolean {
     return /!ping/.test(content);
   }
