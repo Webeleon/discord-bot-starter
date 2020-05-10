@@ -5,7 +5,7 @@ import { ConfigModule } from '../config/config.module';
 import { ConfigService } from '../config/config.service';
 import { CommandsService } from './commands/commands.service';
 import { ScheduledService } from './scheduled/scheduled.service';
-import { PingService } from './commands/ping/ping.service';
+import { PingHandler } from './commands/ping/ping.handler';
 
 @Module({
   imports: [ConfigModule],
@@ -14,7 +14,7 @@ import { PingService } from './commands/ping/ping.service';
     ConfigService,
     CommandsService,
     ScheduledService,
-    PingService,
+    PingHandler,
   ],
   exports: [DiscordService],
   controllers: [DiscordController],

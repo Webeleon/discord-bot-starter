@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PingService } from './ping.service';
+import { PingHandler } from './ping.handler';
 
 describe('PingService', () => {
-  let service: PingService;
+  let service: PingHandler;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [PingService],
+      providers: [PingHandler],
     }).compile();
 
-    service = module.get<PingService>(PingService);
+    service = module.get<PingHandler>(PingHandler);
   });
 
   it('should be defined', () => {
