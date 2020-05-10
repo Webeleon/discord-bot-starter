@@ -4,11 +4,8 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
   constructor() {}
 
-  @Get([
-    "/",
-    "/health"
-  ])
+  @Get(['/', '/health'])
   health() {
-    return "ok";
+    return 'ok';
   }
 }

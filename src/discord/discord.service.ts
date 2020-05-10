@@ -12,7 +12,7 @@ export class DiscordService {
   constructor(
     private readonly config: ConfigService,
     private readonly commandService: CommandsService,
-    ) {}
+  ) {}
 
   connect() {
     this.client = new Client();
@@ -26,4 +26,13 @@ export class DiscordService {
     this.client.login(this.config.discordToken);
   }
 
+  async isGuildAvailable(guildId: string): Promise<boolean> {
+    const guild = await this.client.guilds.resolve(guildId);
+    return !!guild;
+  }
+
+  async isChannelAvailable(channelId: string): Promise<boolean> {
+    const channel = await this.client.channels.fetch(channelId, false);
+    return !!channel;
+  }
 }
