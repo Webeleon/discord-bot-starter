@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
 
-import { ICommandService } from '../interfaces/ICommandService';
+import { ICommandService } from '../../interfaces/ICommandService';
 
 @Injectable()
 export class PingHandler implements ICommandService {

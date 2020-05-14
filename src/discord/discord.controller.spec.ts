@@ -1,7 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DiscordController } from './discord.controller';
+import { DiscordService } from './discord.service';
 import { ConfigModule } from '../config/config.module';
 import { ConfigService } from '../config/config.service';
+import { CommandsService } from './commands/commands.service';
+import { PingHandler } from './commands/ping/ping.handler';
 
 describe('Discord Controller', () => {
   let controller: DiscordController;
@@ -9,7 +12,7 @@ describe('Discord Controller', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [ConfigModule],
-      providers: [ConfigService],
+      providers: [DiscordService, ConfigService, CommandsService, PingHandler],
       controllers: [DiscordController],
     }).compile();
 

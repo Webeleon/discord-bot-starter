@@ -26,6 +26,10 @@ export class DiscordService {
     this.client.login(this.config.discordToken);
   }
 
+  getBotInviteLink(permissions = '1075305537'): string {
+    return `https://discordapp.com/oauth2/authorize?client_id=${this.config.discordClientId}&scope=bot&permissions=${permissions}`;
+  }
+
   async isGuildAvailable(guildId: string): Promise<boolean> {
     const guild = await this.client.guilds.resolve(guildId);
     return !!guild;
