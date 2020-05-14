@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { InviteHandler } from './invite.handler';
-import { DiscordModule } from '../../discord.module';
+import { DiscordModule } from '../../discord/discord.module';
 
 describe('InviteHandler', () => {
   let service: InviteHandler;
