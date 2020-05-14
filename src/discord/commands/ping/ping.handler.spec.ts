@@ -15,4 +15,11 @@ describe('PingService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
+
+  it('should respond to the !ping command', () => {
+    expect(service.test('!ping')).toBe(true);
+    expect(service.test('!Ping')).toBe(true);
+    expect(service.test('!PING')).toBe(true);
+    expect(service.test('!PinG')).toBe(true);
+  });
 });
