@@ -4,7 +4,7 @@ import { InviteHandler } from './invite/invite.handler';
 import { CommandsService } from './commands.service';
 import { ConfigModule } from '../config/config.module';
 import { DiscordModule } from '../discord/discord.module';
-import { HelpHandler } from './help/help.service';
+import { HelpHandler } from './help/help.handler';
 
 @Module({
   imports: [ConfigModule, DiscordModule],
