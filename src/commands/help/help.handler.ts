@@ -6,7 +6,7 @@ import { ICommandService } from '../../discord/interfaces/ICommandService';
 export class HelpHandler implements ICommandService {
   name = 'help';
   test(content: string): boolean {
-    return /!help/i.test(content);
+    return /^!help/i.test(content);
   }
 
   async execute(message: Message): Promise<void> {
