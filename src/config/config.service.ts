@@ -16,4 +16,8 @@ export class ConfigService {
     this.mongoURL =
       process.env.MONGO_URL || 'mongodb://localhost/webeleon-bot-template';
   }
+
+  getBotInviteLink(permissions = '1075305537'): string {
+    return `https://discordapp.com/oauth2/authorize?client_id=${this.discordClientId}&scope=bot&permissions=${permissions}`;
+  }
 }

@@ -1,13 +1,13 @@
 import { Controller, Get, Redirect } from '@nestjs/common';
-import { DiscordService } from './discord.service';
+import { ConfigService } from '../config/config.service';
 
 @Controller('discord')
 export class DiscordController {
-  constructor(private readonly discordService: DiscordService) {}
+  constructor(private readonly config: ConfigService) {}
 
   @Get('/bot-invite')
   @Redirect('')
   invite() {
-    return { url: this.discordService.getBotInviteLink() };
+    return { url: this.config.getBotInviteLink() };
   }
 }

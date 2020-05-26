@@ -2,11 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
 
 import { ICommandService } from '../interfaces/ICommandService';
-import { DiscordService } from '../../discord/discord.service';
+import { ConfigService } from '../../config/config.service';
 
 @Injectable()
 export class InviteHandler implements ICommandService {
-  constructor(private readonly discordService: DiscordService) {}
+  constructor(private readonly config: ConfigService) {}
 
   name = 'invite';
   test(content: string): boolean {
@@ -14,6 +14,6 @@ export class InviteHandler implements ICommandService {
   }
 
   async execute(message: Message): Promise<void> {
-    message.reply(this.discordService.getBotInviteLink());
+    message.reply(this.config.getBotInviteLink());
   }
 }
