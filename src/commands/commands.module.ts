@@ -5,10 +5,17 @@ import { CommandsService } from './commands.service';
 import { ConfigModule } from '../config/config.module';
 import { DiscordModule } from '../discord/discord.module';
 import { HelpHandler } from './help/help.handler';
+import { StatusHandler } from './status/status.handler';
 
 @Module({
   imports: [ConfigModule, DiscordModule],
-  providers: [CommandsService, PingHandler, InviteHandler, HelpHandler],
+  providers: [
+    CommandsService,
+    PingHandler,
+    InviteHandler,
+    HelpHandler,
+    StatusHandler,
+  ],
   exports: [CommandsService],
 })
 export class CommandsModule {}

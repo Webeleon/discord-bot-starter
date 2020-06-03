@@ -5,6 +5,7 @@ import { ICommandService } from '../discord/interfaces/ICommandService';
 import { PingHandler } from './ping/ping.handler';
 import { InviteHandler } from './invite/invite.handler';
 import { HelpHandler } from './help/help.handler';
+import { StatusHandler } from './status/status.handler';
 
 @Injectable()
 export class CommandsService {
@@ -14,8 +15,14 @@ export class CommandsService {
     private readonly pingHandler: PingHandler,
     private readonly inviteHandler: InviteHandler,
     private readonly helpHandler: HelpHandler,
+    private readonly statusHandler: StatusHandler,
   ) {
-    this.commandHandlers = [pingHandler, inviteHandler, helpHandler];
+    this.commandHandlers = [
+      pingHandler,
+      inviteHandler,
+      helpHandler,
+      statusHandler,
+    ];
   }
   register(client: Client) {
     client.on('message', async message => await this.messageHandler(message));
