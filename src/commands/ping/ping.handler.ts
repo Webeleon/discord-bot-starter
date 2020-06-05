@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
 
-import { ICommandService } from '../../discord/interfaces/ICommandService';
+import { CommandsInterfaces } from '../commands.interfaces';
 
 @Injectable()
-export class PingHandler implements ICommandService {
+export class PingHandler implements CommandsInterfaces {
   name = 'ping';
   test(content: string): boolean {
     return /^!ping/i.test(content);

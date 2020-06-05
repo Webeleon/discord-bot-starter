@@ -1,13 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
 
-import { ICommandService } from '../../discord/interfaces/ICommandService';
+import { CommandsInterfaces } from '../commands.interfaces';
 
-const greenOK = 1759784;
-const orangeWarning = 16751872;
-const redDanger = 16711680;
 @Injectable()
-export class StatusHandler implements ICommandService {
+export class StatusHandler implements CommandsInterfaces {
   name: '!status';
   test(content: string): boolean {
     return /^!status/i.test(content);
@@ -16,7 +13,7 @@ export class StatusHandler implements ICommandService {
   async execute(message: Message): Promise<void> {
     message.channel.send({
       embed: {
-        color: greenOK,
+        color: 'GREEN',
         fields: [
           {
             name: 'Statistics',
