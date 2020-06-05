@@ -1,0 +1,28 @@
+image: node:10-alpine
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - lint
+  - test
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+lint:
+  stage: lint
+  script: npm run lint
+
+testing:
+  stage: test
+  script:
+    - npm test
+    - npm run test:e2e
+    - npm run test:cov
