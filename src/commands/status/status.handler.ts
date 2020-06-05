@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
 
-import { CommandsInterfaces } from '../commands.interfaces';
+import { ICommandHandler } from '../ICommandHandler';
 
 @Injectable()
-export class StatusHandler implements CommandsInterfaces {
+export class StatusHandler implements ICommandHandler {
   name: '!status';
   test(content: string): boolean {
     return /^!status/i.test(content);

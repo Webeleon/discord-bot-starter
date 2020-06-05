@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Client, Message } from 'discord.js';
 
-import { CommandsInterfaces } from './commands.interfaces';
+import { ICommandHandler } from './ICommandHandler';
 import { PingHandler } from './ping/ping.handler';
 import { InviteHandler } from './invite/invite.handler';
 import { HelpHandler } from './help/help.handler';
@@ -9,7 +9,7 @@ import { StatusHandler } from './status/status.handler';
 
 @Injectable()
 export class CommandsService {
-  commandHandlers: CommandsInterfaces[] = [];
+  commandHandlers: ICommandHandler[] = [];
 
   constructor(
     private readonly pingHandler: PingHandler,

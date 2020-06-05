@@ -1,6 +1,6 @@
 import { Message } from 'discord.js';
 
-export interface CommandsInterfaces {
+export interface ICommandHandler {
   execute: (message: Message) => Promise<void>;
   test: (content: string) => boolean;
   name: string;
