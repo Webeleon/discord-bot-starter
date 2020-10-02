@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Message } from 'discord.js';
 
-import { ICommandService } from '../interfaces/ICommandService';
+import { ICommandHandler } from '../ICommandHandler';
+import { DiscordService } from '../../discord/discord.service';
 import { ConfigService } from '../../config/config.service';
 
 @Injectable()
-export class InviteHandler implements ICommandService {
-  constructor(private readonly config: ConfigService) {}
+export class InviteHandler implements ICommandHandler {
+  constructor(
+    private readonly discordService: DiscordService,
+    private readonly config: ConfigService,
+  ) {}
 
   name = 'invite';
   test(content: string): boolean {
