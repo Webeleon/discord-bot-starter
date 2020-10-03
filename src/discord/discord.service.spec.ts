@@ -20,10 +20,4 @@ describe('DiscordService', () => {
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
-
-  it('should provide an invite link', () => {
-    expect(service.getBotInviteLink()).toBe(
-      `https://discordapp.com/oauth2/authorize?client_id=${configService.discordClientId}&scope=bot&permissions=1075305537`,
-    );
-  });
 });

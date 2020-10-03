@@ -1,13 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { InviteHandler } from './invite.handler';
-import { DiscordModule } from '../../discord/discord.module';
+import { ConfigModule } from '../../config/config.module';
 
 describe('InviteHandler', () => {
   let service: InviteHandler;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [DiscordModule],
+      imports: [ConfigModule],
       providers: [InviteHandler],
     }).compile();
 
