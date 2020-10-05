@@ -1,0 +1,24 @@
+version: "3"
+services:
+  bot:
+    restart: unless-stopped
+    container_name: bot
+    image: containers.pkg.github.com/Webeleon/discord-bot-starter
+    environment:
+      PORT: 5000
+      DISCORD_API_TOKEN:
+      DISCORD_CLIENT_ID:
+      MONGO_URL:
+  # ouroboros:
+  #   restart: unless-stopped
+  #   image: pyouroboros/ouroboros
+  #   container_name: ouroboros
+  #   hostname: ouroboros
+  #   environment:
+  #     - MONITOR
+  #     - CLEANUP
+  #     - INTERVAL
+  #     - LOG_LEVEL
+  #     - SELF_UPDATE
+  #     - TZ
+  #     - LATEST
