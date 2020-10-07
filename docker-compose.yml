@@ -5,4 +5,9 @@ services:
     container_name: bot
     image: containers.pkg.github.com/Webeleon/discord-bot-starter
     env_file:
-      - bot-variables.env
+      - .env
+  mongo:
+    container_name: mongodb
+    image: mongo:4.4
+    env_file:
+      - .env
