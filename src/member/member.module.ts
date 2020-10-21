@@ -9,5 +9,6 @@ import { memberSchema } from './member.model';
     MongooseModule.forFeature([{ name: 'Member', schema: memberSchema }]),
   ],
   providers: [MemberService],
+  exports: [MemberService],
 })
 export class MemberModule {}

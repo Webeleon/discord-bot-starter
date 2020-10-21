@@ -9,5 +9,6 @@ import { serverSchema } from './server.model';
     MongooseModule.forFeature([{ name: 'Server', schema: serverSchema }]),
   ],
   providers: [ServerService],
+  exports: [ServerService],
 })
 export class ServerModule {}
