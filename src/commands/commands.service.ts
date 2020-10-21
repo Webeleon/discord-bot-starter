@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Client, Message } from 'discord.js';
+import { Client, Message, MessageEmbed } from 'discord.js';
 
 import { ICommandHandler } from './ICommandHandler';
 import { PingHandler } from './ping/ping.handler';
@@ -29,7 +29,17 @@ export class CommandsService {
       Logger.log(`${command.name} registered`, 'CommandExplorer');
     }
 
-    client.on('message', async message => await this.messageHandler(message));
+    client.on('message', async message => {
+      try {
+        await this.messageHandler(message);
+      } catch (error) {
+        Logger.error(error.message, error.stack);
+        const errorEmbed = new MessageEmbed()
+          .setColor('RED')
+          .setDescription(error.message);
+        message.channel.send(errorEmbed);
+      }
+    });
   }
 
   async messageHandler(message: Message) {
