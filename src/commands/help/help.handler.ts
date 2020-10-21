@@ -11,7 +11,7 @@ export class HelpHandler implements ICommandHandler {
   }
 
   async execute(message: Message): Promise<void> {
-    message.reply({
+    message.channel.send({
       embed: {
         description: 'Webeleon bot template help',
         fields: [

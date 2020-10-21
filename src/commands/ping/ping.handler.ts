@@ -11,6 +11,6 @@ export class PingHandler implements ICommandHandler {
   }
 
   async execute(message: Message): Promise<void> {
-    message.reply('pong!');
+    message.channel.send('pong!');
   }
 }

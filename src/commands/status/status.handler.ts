@@ -3,6 +3,9 @@ import { Message } from 'discord.js';
 
 import { ICommandHandler } from '../ICommandHandler';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { version } = require('../../../package.json');
+
 @Injectable()
 export class StatusHandler implements ICommandHandler {
   name: '!status';
@@ -15,6 +18,10 @@ export class StatusHandler implements ICommandHandler {
       embed: {
         color: 'GREEN',
         fields: [
+          {
+            name: 'Version',
+            value: version,
+          },
           {
             name: 'Statistics',
             value: `

@@ -1,3 +1,23 @@
+![banner](images/banner.png)
+
+## Built in commands
+
+### `!help`
+
+![help](images/commands/help.png)
+
+### `!invite`
+
+![invite](images/commands/invite.png)
+
+### `!ping`
+
+![ping](images/commands/invite.png)
+
+### `!status`
+
+![status](images/commands/status.png)
+
 ## Endpoints
 
 - [GET] `/` `/health`
@@ -49,5 +69,5 @@ $ npm run test:cov
 
 ## Built with
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript.
-[discord.js](https://discord.js.org/#/) discord API client.
+- [Nest](https://github.com/nestjs/nest) framework TypeScript.
+- [discord.js](https://discord.js.org/#/) discord API client.

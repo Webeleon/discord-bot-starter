@@ -14,6 +14,6 @@ export class InviteHandler implements ICommandHandler {
   }
 
   async execute(message: Message): Promise<void> {
-    message.reply(this.config.getBotInviteLink());
+    message.channel.send(this.config.getBotInviteLink());
   }
 }
