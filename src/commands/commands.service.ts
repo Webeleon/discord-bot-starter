@@ -47,8 +47,17 @@ export class CommandsService {
     const { content } = message;
     for (const handler of this.commandHandlers) {
       if (handler.test(content)) {
-        Logger.debug(`executing command [${handler.name}] => ${content}`);
-        await handler.execute(message);
+        try {
+          Logger.debug(`executing command [${handler.name}] => ${content}`);
+          await handler.execute(message);
+          return;
+        } catch (error) {
+          Logger.error(error.message, error.stack);
+          const errorEmbed = new MessageEmbed()
+            .setColor('RED')
+            .setDescription(error.message);
+          message.channel.send(errorEmbed);
+        }
       }
     }
   }
