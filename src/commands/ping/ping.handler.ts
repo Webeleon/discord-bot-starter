@@ -7,7 +7,7 @@ import { ICommandHandler } from '../ICommandHandler';
 export class PingHandler implements ICommandHandler {
   name = 'ping';
   test(content: string): boolean {
-    return /^!ping/i.test(content);
+    return /^ping/i.test(content);
   }
 
   async execute(message: Message): Promise<void> {

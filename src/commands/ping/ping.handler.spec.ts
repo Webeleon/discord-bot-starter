@@ -17,9 +17,9 @@ describe('PingService', () => {
   });
 
   it('should respond to the !ping command', () => {
-    expect(service.test('!ping')).toBe(true);
-    expect(service.test('!Ping')).toBe(true);
-    expect(service.test('!PING')).toBe(true);
-    expect(service.test('!PinG')).toBe(true);
+    expect(service.test('ping')).toBe(true);
+    expect(service.test('Ping')).toBe(true);
+    expect(service.test('PING')).toBe(true);
+    expect(service.test('PinG')).toBe(true);
   });
 });

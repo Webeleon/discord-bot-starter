@@ -10,7 +10,7 @@ const { version } = require('../../../package.json');
 export class StatusHandler implements ICommandHandler {
   name: '!status';
   test(content: string): boolean {
-    return /^!status/i.test(content);
+    return /^status/i.test(content);
   }
 
   async execute(message: Message): Promise<void> {

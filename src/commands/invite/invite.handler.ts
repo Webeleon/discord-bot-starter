@@ -10,7 +10,7 @@ export class InviteHandler implements ICommandHandler {
 
   name = 'invite';
   test(content: string): boolean {
-    return /^!invite.*/i.test(content);
+    return /^invite.*/i.test(content);
   }
 
   async execute(message: Message): Promise<void> {

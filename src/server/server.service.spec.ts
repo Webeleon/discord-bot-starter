@@ -8,6 +8,7 @@ import {
   closeInMongodConnection,
   rootMongooseTestModule,
 } from '../test-utils/mongo/MongooseTestModule';
+import { ConfigModule } from '../config/config.module';
 
 describe('ServerService', () => {
   let service: ServerService;
@@ -16,6 +17,7 @@ describe('ServerService', () => {
     const config = new ConfigService();
     const module: TestingModule = await Test.createTestingModule({
       imports: [
+        ConfigModule,
         rootMongooseTestModule(),
         MongooseModule.forFeature([{ name: 'Server', schema: serverSchema }]),
       ],
