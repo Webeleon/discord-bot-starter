@@ -49,7 +49,7 @@
     "eslint-plugin-import": "2.22.1",
     "husky": "4.2.5",
     "jest": "25.5.4",
-    "lint-staged": "10.2.2",
+    "lint-staged": "10.5.1",
     "mongodb-memory-server": "6.9.2",
     "prettier": "1.19.1",
     "supertest": "4.0.2",
