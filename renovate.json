@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base"],
+  "extends": ["config:base", "schedule:earlyMondays"],
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
@@ -7,5 +7,5 @@
       "automerge": true
     }
   ],
-  "commitMessageAction": "⬆️ bump"
+  "commitMessageAction": "update"
 }
