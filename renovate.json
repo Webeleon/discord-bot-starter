@@ -1,5 +1,11 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "gitLabAutomerge": true,
+      "automerge": true
+    }
+  ],
+  "commitMessageAction": "⬆️ bump"
 }
