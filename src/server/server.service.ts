@@ -18,6 +18,8 @@ export class ServerService {
     if (!server) {
       return this.serverModel.create({
         serverId,
+        prefix: this.configService.defaultPrefix,
+        allowedChannels: [],
       });
     }
     return server;
@@ -115,7 +117,7 @@ export class ServerService {
     } else {
       if (server.allowedChannels.includes(channel.id)) {
         server.allowedChannels = server.allowedChannels.filter(
-          chanId => chanId !== channel.id,
+          (chanId) => chanId !== channel.id,
         );
         await server.save();
       }
