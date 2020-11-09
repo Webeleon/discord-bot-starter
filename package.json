@@ -28,7 +28,7 @@
     "@nestjs/schedule": "0.4.1",
     "discord.js": "12.4.1",
     "dotenv": "8.2.0",
-    "mongoose": "5.10.11",
+    "mongoose": "5.10.13",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
     "rxjs": "6.6.3"
