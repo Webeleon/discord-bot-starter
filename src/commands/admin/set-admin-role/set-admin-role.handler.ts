@@ -14,21 +14,18 @@ export class SetAdminRoleHandler implements ICommandHandler {
   name = `${this.configService.adminPrefix} set admin role <@role>`;
   description =
     'set role with admin permissions on the bot for the current server';
+  regex = new RegExp(
+    `^${this.configService.adminPrefix} SET ADMIN role <@&(.+)>`,
+    'i',
+  );
 
   test(content: string): boolean {
-    return new RegExp(
-      `^${this.configService.adminPrefix} set admin role <@&.+>`,
-      'i',
-    ).test(content);
+    return this.regex.test(content);
   }
 
   async execute(message: Message): Promise<void> {
-    const [msg, roleId] = message.content.match(
-      new RegExp(
-        `^${this.configService.adminPrefix} SET ADMIN role <@&(.+)>`,
-        'i',
-      ),
-    );
+    const [msg, roleId] = message.content.match(this.regex);
+
     Logger.debug(`captured role id ${roleId}`, 'setAdminRoleHandler');
     try {
       await this.serverService.setAdminRole(
