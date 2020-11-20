@@ -15,13 +15,10 @@ export class SetPrefixHandler implements ICommandHandler {
   name = `${this.configService.adminPrefix} set prefix <prefix>`;
   description =
     'allow server admin to define a custom prefix for user commands';
+  regex = new RegExp(`^${this.configService.adminPrefix} set prefix (.*)`, 'i');
 
   test(content: string): boolean {
-    const regexp = new RegExp(
-      `^${this.configService.adminPrefix} set prefix .*`,
-      'i',
-    );
-    return regexp.test(content);
+    return this.regex.test(content);
   }
 
   async execute(message: Message): Promise<void> {
@@ -29,9 +26,7 @@ export class SetPrefixHandler implements ICommandHandler {
       message.guild,
       message.author.id,
     );
-    const [_, prefix] = message.content.match(
-      new RegExp(`^${this.configService.adminPrefix} set prefix (.*)`, 'i'),
-    );
+    const [_, prefix] = message.content.match(this.regex);
 
     const savedPrefix = await this.serverService.setServerPrefix(
       message.guild.id,
