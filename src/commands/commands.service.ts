@@ -51,10 +51,15 @@ export class CommandsService {
   }
   register(client: Client) {
     for (const command of this.commandHandlers) {
-      Logger.log(`${command.name} registered`, 'CommandExplorer');
+      Logger.log(
+        `${command.name} registered => ${
+          command.regex ?? command.description ?? '?'
+        }`,
+        'CommandExplorer',
+      );
     }
 
-    client.on('message', async message => {
+    client.on('message', async (message) => {
       try {
         await this.messageHandler(message);
       } catch (error) {
