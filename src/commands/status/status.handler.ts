@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Message } from 'discord.js';
+import { Message, MessageEmbed } from 'discord.js';
 
 import { ICommandHandler } from '../ICommandHandler';
 
@@ -8,36 +8,34 @@ const { version } = require('../../../package.json');
 
 @Injectable()
 export class StatusHandler implements ICommandHandler {
-  name: '!status';
+  name = '!status';
+  regex = new RegExp(`^status$`, 'i');
+
   test(content: string): boolean {
-    return /^status/i.test(content);
+    return this.regex.test(content);
   }
 
   async execute(message: Message): Promise<void> {
-    message.channel.send({
-      embed: {
-        color: 'GREEN',
-        fields: [
-          {
-            name: 'Version',
-            value: version,
-          },
-          {
-            name: 'Statistics',
-            value: `
+    const embed = new MessageEmbed().setColor('GREEN').addFields([
+      {
+        name: 'Version',
+        value: version,
+      },
+      {
+        name: 'Statistics',
+        value: `
 I'm in ${message.client.guilds.cache.array().length} servers.            
             `,
-          },
-          {
-            name: 'Status',
-            value: `
+      },
+      {
+        name: 'Status',
+        value: `
 **Uptime** ${this.formatUptime()}
 :white_check_mark: Bot 
             `,
-          },
-        ],
       },
-    });
+    ]);
+    await message.channel.send(embed);
   }
 
   formatUptime(): string {
