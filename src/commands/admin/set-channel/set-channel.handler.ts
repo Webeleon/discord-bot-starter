@@ -15,12 +15,10 @@ export class SetChannelHandler implements ICommandHandler {
   name = `${this.configService.adminPrefix} set channel`;
   description =
     'Admin command: allow the bot to be used in the specific channel';
+  regex = new RegExp(`^${this.configService.adminPrefix} set channel`, 'i');
 
   test(content: string): boolean {
-    return new RegExp(
-      `^${this.configService.adminPrefix} set channel`,
-      'i',
-    ).test(content);
+    return this.test(content);
   }
 
   async execute(message: Message): Promise<void> {
@@ -33,7 +31,7 @@ export class SetChannelHandler implements ICommandHandler {
       .setColor('GREEN')
       .setTitle('Channel authorized')
       .setDescription(`**Currently authorized channels**
-${server.allowedChannels.map(chan => `<#${chan}>`).join('\n')}`);
+${server.allowedChannels.map((chan) => `<#${chan}>`).join('\n')}`);
     message.channel.send(embed);
   }
 }
