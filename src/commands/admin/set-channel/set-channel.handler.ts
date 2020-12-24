@@ -18,7 +18,7 @@ export class SetChannelHandler implements ICommandHandler {
   regex = new RegExp(`^${this.configService.adminPrefix} set channel`, 'i');
 
   test(content: string): boolean {
-    return this.test(content);
+    return this.regex.test(content);
   }
 
   async execute(message: Message): Promise<void> {
