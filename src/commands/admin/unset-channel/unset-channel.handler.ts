@@ -14,12 +14,10 @@ export class UnsetChannelHandler implements ICommandHandler {
 
   name = `${this.configService.adminPrefix} unset channel`;
   description = `Admin command: remove the usage flag in a channel. If no channel are flagged as bot channel, All channels are allowed`;
+  regex = new RegExp(`^${this.configService.adminPrefix} unset channel`, 'i');
 
   test(content: string): boolean {
-    return new RegExp(
-      `^${this.configService.adminPrefix} unset channel`,
-      'i',
-    ).test(content);
+    return this.regex.test(content);
   }
 
   async execute(message: Message): Promise<void> {
@@ -32,7 +30,7 @@ export class UnsetChannelHandler implements ICommandHandler {
       .setColor(`GREEN`)
       .setTitle(`Channel unauthorized`)
       .setDescription(`**Currently authorized channels**
-${server.allowedChannels.map(chan => `<#${chan}>`).join(`\n`)}`);
-    message.channel.send(embed);
+${server.allowedChannels.map((chan) => `<#${chan}>`).join(`\n`)}`);
+    await message.channel.send(embed);
   }
 }
