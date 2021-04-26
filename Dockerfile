@@ -1,5 +1,5 @@
 # Build stage
-FROM node:14.15 as build-stage
+FROM node:14.16 as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --silent
@@ -8,7 +8,7 @@ ENV NODE_ENV=production
 RUN npm run build
 
 # Production stage
-FROM node:14.15 as production-stage
+FROM node:14.16 as production-stage
 WORKDIR /app
 COPY --from=build-stage /app/dist /app/dist
 COPY *.json /app/
