@@ -27,7 +27,7 @@
     "@nestjs/platform-express": "7.6.17",
     "@nestjs/schedule": "0.4.3",
     "discord.js": "12.5.3",
-    "dotenv": "8.2.0",
+    "dotenv": "8.6.0",
     "mongoose": "5.11.9",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
