@@ -37,7 +37,7 @@
     "@nestjs/cli": "7.6.0",
     "@nestjs/schematics": "7.3.1",
     "@nestjs/testing": "7.6.18",
-    "@types/express": "4.17.12",
+    "@types/express": "4.17.13",
     "@types/jest": "26.0.23",
     "@types/mongoose": "5.11.96",
     "@types/node": "13.13.52",
