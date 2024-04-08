@@ -42,7 +42,7 @@
     "@types/mongoose": "5.11.97",
     "@types/node": "13.13.52",
     "@types/sinon": "10.0.20",
-    "@types/supertest": "2.0.11",
+    "@types/supertest": "2.0.16",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
     "eslint": "7.32.0",
